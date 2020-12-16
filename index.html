@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>TicketGenerator</title>
+</head>
+<body>
+
+ <body onload="startTime()">
+<h1>Pharmacy <span style='font-size:50px;'>&#127903;</span> Number Generator</h1>
+   <h4> Site? </h4>
+   
+  <div id="Print"> <!-- Print area set -->
+  <h2 id="displayCount">0</h2>  
+    <h3>
+   <a onload="startTime()" id="p1"> </a>
+      <a id="p2"> </a>
+    </h3>
+  </div>
+    
+   
+
+ <button class= BUTTON; input type= "button" value="CLICK HERE" id="countButton" onclick ="myFunction()"> Next Patient </button>
+
+   <button id="copyButton">Copy Number</button> <span id="copyResult"></span>
+   <!-- Input type in CSS made to look like button -->
+   <input type="button" value="Print" onclick="codespeedy()">
+ 
+   <!-- Move to far right and grey button in CSS made to make less attractive to press -->
+     <div>
+       <p style = "text-align:right; color:#4CAF50;"> <b>End of the day:</b>
+ <button1 class= BUTTON; input type= "button" value="RESET" id="resetButton">Reset</button1>
+   </p>    
+   </div>
+   
+   
+
+   <br>
+   <br>
+   <p style="font-size:60%;text-align:left;"> Created by P.Sphikas &#169</p>
+    </body>
+ 
+   
+
+</body>
+</html>
+
+
+
+<style>
+body {
+	font-family: arial;
+	color: #333;
+	text-align: center;
+	background-color: #f9f9f9;
+}
+
+h2 {
+  font-weight: 300;
+	font-size: 9em;
+  color: #4CAF50;
+  line-height: 40%;
+} 
+
+ button { background-color: #4CAF50;
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+}
+
+
+h1 {
+  color: #4CAF50;
+
+} 
+
+h3{
+   word-spacing: 10px;
+}
+
+input[type=button]{
+  background-color: #4CAF50;
+  border: none;
+  color: white;
+  padding: 16px 32px;
+  text-decoration: none;
+  margin: 4px 2px;
+  cursor: pointer;
+  font-size: 16px;}
+
+button1 {
+  background-color: grey;
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  float: right;
+}
+
+
+h4 {
+  font-weight: 600;
+	font-size: 1.5em;
+  color: #4CAF50;
+  line-height:0%;
+} 
+
+</style>
+
+
+
+<script>
+// Count
+var count = 0;
+var countButton = document.getElementById("countButton");
+var displayCount = document.getElementById("displayCount");
+countButton.onclick = function(){
+  count++;
+  displayCount.innerHTML = count;
+}
+// Reset
+resetButton.onclick = function(){
+  count = 0;
+  displayCount.innerHTML = count;
+  copy
+}
+
+
+// PrintSelection
+//www.codespeedy.com/javascript-print-specific-div-onclick/
+    function codespeedy(){
+      var print_div = document.getElementById("Print");
+var print_area = window.open();
+print_area.document.write(print_div.innerHTML);
+print_area.document.close();
+print_area.focus();
+print_area.print();
+print_area.close();
+// This is the code print a particular div element
+    }
+
+
+// Time
+ function startTime() {
+  var today = new Date();
+  var h = today.getHours();
+  var m = today.getMinutes();
+  var s = today.getSeconds();
+  m = checkTime(m);
+  s = checkTime(s);
+  document.getElementById("p1").innerHTML =
+  h + ":" + m + ":" + s;
+  var t = setTimeout(startTime, 500);
+}
+function checkTime(i) {
+  if (i < 10) {i = "0" + i};  // add zero in front of numbers < 10
+  return i;
+}
+
+//Date
+ {
+   var today = new Date();
+var dd = String(today.getDate()).padStart(2, '0');
+var mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
+var yyyy = today.getFullYear();
+       document.getElementById("p2").innerHTML =
+today = dd + '/' + mm + '/' + yyyy;
+document;
+}
+    
+
+
+
+
+
+//Copy with alert
+const answer = document.getElementById("copyResult");
+const copy   = document.getElementById("copyButton");
+const selection = window.getSelection();
+const range = document.createRange();
+const textToCopy = document.getElementById("displayCount")
+
+copy.addEventListener('click', function(e) {
+    range.selectNodeContents(textToCopy);
+    selection.removeAllRanges();
+    selection.addRange(range);
+    const successful = document.execCommand('copy');
+    if(successful){
+   alert("Ticket Number Copied: " + displayCount.innerHTML);
+      
+    }  window.getSelection().removeAllRanges()
+});
+
+
+</script>
